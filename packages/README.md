@@ -5,7 +5,7 @@
 
 A pure JavaScript visual node connector for creating draggable connections between nodes. Framework-agnostic and easy to use.
 
-![Node Link Connector Demo](./images/screen-shot.png)
+![Node Link Connector Demo](https://github.com/Tem-man/node-link-utils/blob/main/packages/images/screen-shot.png)
 
 ## ✨ Features
 

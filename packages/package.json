@@ -1,6 +1,6 @@
 {
   "name": "node-link-utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A pure JavaScript visual node connector for creating draggable connections between nodes. Framework-agnostic and easy to use",
   "type": "module",
   "main": "dist/index.js",
@@ -22,6 +22,10 @@
     "drag-line",
     "bezier-curve"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tem-man/node-link-utils.git"
+  },
   "author": "",
   "license": "MIT",
   "scripts": {
