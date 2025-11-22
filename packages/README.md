@@ -1,4 +1,4 @@
-# node-link-utils
+# power-link
 
 [![npm version](https://img.shields.io/npm/v/node-link-utils.svg)](https://www.npmjs.com/package/node-link-utils)
 [![license](https://img.shields.io/npm/l/node-link-utils.svg)](https://github.com/your-username/node-link-utils/blob/main/LICENSE)
@@ -14,7 +14,7 @@ A pure JavaScript visual node connector for creating draggable connections betwe
   Your browser does not support the video tag.
 </video>
 
-**Watch the demo video** to see node-link-utils in action! [Download video](https://github.com/Tem-man/node-link-utils/raw/main/packages/images/video.mp4)
+**Watch the demo video** to see power-link in action! [Download video](https://github.com/Tem-man/node-link-utils/raw/main/packages/images/video.mp4)
 
 ## ✨ Features
 
@@ -31,19 +31,19 @@ A pure JavaScript visual node connector for creating draggable connections betwe
 ## 📦 Installation
 
 ```bash
-npm install node-link-utils
+npm install power-link
 ```
 
 Or using yarn:
 
 ```bash
-yarn add node-link-utils
+yarn add power-link
 ```
 
 Or using pnpm:
 
 ```bash
-pnpm add node-link-utils
+pnpm add power-link
 ```
 
 ## 🚀 Quick Start
@@ -51,7 +51,7 @@ pnpm add node-link-utils
 ### Basic Usage
 
 ```javascript
-import Connector from "node-link-utils";
+import Connector from "power-link";
 
 // 1. Get container element
 const container = document.getElementById("connector-container");
@@ -74,7 +74,7 @@ const connector = new Connector({
 
   onDisconnect: (connection) => {
     console.log("Connection removed:", connection);
-  }
+  },
 });
 
 // 3. Register nodes
@@ -82,33 +82,20 @@ const node1 = document.getElementById("node1");
 const node2 = document.getElementById("node2");
 
 connector.registerNode("node1", node1, {
-  dotPositions: ["right"] // Only right connection dot
+  dotPositions: ["right"], // Only right connection dot
 });
 
 connector.registerNode("node2", node2, {
-  dotPositions: ["left", "right"] // Both left and right dots
+  dotPositions: ["left", "right"], // Both left and right dots
 });
 ```
 
 ### HTML Structure
 
 ```html
-<div
-  id="connector-container"
-  style="position: relative; height: 600px;"
->
-  <div
-    id="node1"
-    style="position: absolute; left: 100px; top: 100px;"
-  >
-    Node 1
-  </div>
-  <div
-    id="node2"
-    style="position: absolute; left: 400px; top: 100px;"
-  >
-    Node 2
-  </div>
+<div id="connector-container" style="position: relative; height: 600px;">
+  <div id="node1" style="position: absolute; left: 100px; top: 100px;">Node 1</div>
+  <div id="node2" style="position: absolute; left: 400px; top: 100px;">Node 2</div>
 </div>
 ```
 
@@ -153,7 +140,7 @@ Register a node for connection.
 
 ```javascript
 connector.registerNode("myNode", element, {
-  dotPositions: ["right"]
+  dotPositions: ["right"],
 });
 ```
 
@@ -240,28 +227,15 @@ connector.destroy();
 
 ```vue
 <template>
-  <div
-    class="container"
-    ref="containerRef"
-  >
-    <div
-      class="node"
-      ref="node1Ref"
-    >
-      Node 1
-    </div>
-    <div
-      class="node"
-      ref="node2Ref"
-    >
-      Node 2
-    </div>
+  <div class="container" ref="containerRef">
+    <div class="node" ref="node1Ref">Node 1</div>
+    <div class="node" ref="node2Ref">Node 2</div>
   </div>
 </template>
 
 <script setup>
   import { ref, onMounted, onBeforeUnmount } from "vue";
-  import Connector from "node-link-utils";
+  import Connector from "power-link";
 
   const containerRef = ref(null);
   const node1Ref = ref(null);
@@ -277,15 +251,15 @@ connector.destroy();
       },
       onDisconnect: (connection) => {
         console.log("Connection removed:", connection);
-      }
+      },
     });
 
     connector.registerNode("node1", node1Ref.value, {
-      dotPositions: ["right"]
+      dotPositions: ["right"],
     });
 
     connector.registerNode("node2", node2Ref.value, {
-      dotPositions: ["left"]
+      dotPositions: ["left"],
     });
   });
 
@@ -318,7 +292,7 @@ connector.destroy();
 
 ```jsx
 import { useEffect, useRef } from "react";
-import Connector from "node-link-utils";
+import Connector from "power-link";
 
 function App() {
   const containerRef = useRef(null);
@@ -336,15 +310,15 @@ function App() {
       },
       onDisconnect: (connection) => {
         console.log("Connection removed:", connection);
-      }
+      },
     });
 
     connectorRef.current.registerNode("node1", node1Ref.current, {
-      dotPositions: ["right"]
+      dotPositions: ["right"],
     });
 
     connectorRef.current.registerNode("node2", node2Ref.current, {
-      dotPositions: ["left"]
+      dotPositions: ["left"],
     });
 
     return () => {
@@ -355,20 +329,11 @@ function App() {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      style={{ position: "relative", height: "600px" }}
-    >
-      <div
-        ref={node1Ref}
-        style={{ position: "absolute", left: "100px", top: "100px" }}
-      >
+    <div ref={containerRef} style={{ position: "relative", height: "600px" }}>
+      <div ref={node1Ref} style={{ position: "absolute", left: "100px", top: "100px" }}>
         Node 1
       </div>
-      <div
-        ref={node2Ref}
-        style={{ position: "absolute", left: "400px", top: "100px" }}
-      >
+      <div ref={node2Ref} style={{ position: "absolute", left: "400px", top: "100px" }}>
         Node 2
       </div>
     </div>
@@ -400,38 +365,26 @@ function App() {
   </head>
   <body>
     <div id="container">
-      <div
-        id="node1"
-        class="node"
-        style="left: 100px; top: 100px;"
-      >
-        Node 1
-      </div>
-      <div
-        id="node2"
-        class="node"
-        style="left: 400px; top: 100px;"
-      >
-        Node 2
-      </div>
+      <div id="node1" class="node" style="left: 100px; top: 100px;">Node 1</div>
+      <div id="node2" class="node" style="left: 400px; top: 100px;">Node 2</div>
     </div>
 
     <script type="module">
-      import Connector from "node-link-utils";
+      import Connector from "power-link";
 
       const connector = new Connector({
         container: document.getElementById("container"),
         onConnect: (connection) => {
           console.log("Connection created:", connection);
-        }
+        },
       });
 
       connector.registerNode("node1", document.getElementById("node1"), {
-        dotPositions: ["right"]
+        dotPositions: ["right"],
       });
 
       connector.registerNode("node2", document.getElementById("node2"), {
-        dotPositions: ["left"]
+        dotPositions: ["left"],
       });
     </script>
   </body>
@@ -445,17 +398,17 @@ function App() {
 ```javascript
 // Node with both left and right connection points
 connector.registerNode("centerNode", element, {
-  dotPositions: ["left", "right"]
+  dotPositions: ["left", "right"],
 });
 
 // Node with only left connection point
 connector.registerNode("endNode", element, {
-  dotPositions: ["left"]
+  dotPositions: ["left"],
 });
 
 // Node with only right connection point
 connector.registerNode("startNode", element, {
-  dotPositions: ["right"]
+  dotPositions: ["right"],
 });
 ```
 
@@ -468,7 +421,7 @@ const connector = new Connector({
   lineWidth: 3, // Thicker lines
   dotSize: 16, // Larger dots
   dotColor: "#4ECDC4", // Teal dots
-  deleteButtonSize: 24 // Larger delete button
+  deleteButtonSize: 24, // Larger delete button
 });
 ```
 
@@ -491,7 +444,7 @@ const connector = new Connector({
 
     // Update database, state, etc.
     removeConnection(connection);
-  }
+  },
 });
 ```
 
@@ -520,4 +473,4 @@ Give a ⭐️ if this project helped you!
 
 ---
 
-Made with ❤️ by the node-link-utils team
+Made with ❤️ by the power-link team
