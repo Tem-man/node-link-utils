@@ -1,6 +1,6 @@
 {
   "name": "node-link-utils",
-  "version": "1.0.4",
+  "version": "0.0.1",
   "description": "A pure JavaScript visual node connector for creating draggable connections between nodes. Framework-agnostic and easy to use",
   "type": "module",
   "main": "dist/index.js",
@@ -26,7 +26,10 @@
     "type": "git",
     "url": "git+https://github.com/Tem-man/node-link-utils.git"
   },
-  "author": "",
+  "author": {
+    "name": "Lin Ji Man",
+    "email": "Temman_lin@qq.com"
+  },
   "license": "MIT",
   "scripts": {
     "build": "rollup -c utils/rollup.config.js"
